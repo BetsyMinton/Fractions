@@ -31,6 +31,7 @@ function setup() {
 }
 
 function draw() {
+background(200);
   if (setDraw == 1) {
       noFill();
       translate(100,200);
