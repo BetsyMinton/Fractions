@@ -18,6 +18,7 @@ var blueDoneAngle;
 
 var setDraw = 0;
 var setDraw2 = 0;
+var plus = 0;
 
 function drawFractionOne() {
     numerator = document.fraction1.numerator1.value;
@@ -26,6 +27,7 @@ function drawFractionOne() {
     angleNew = 0;
     setDraw = 1;
     xLocation = 100;
+    plus = 0;
     document.getElementById("secondFraction").style.display = "block";
 }
 
@@ -35,13 +37,14 @@ function drawFractionTwo() {
     angleOriginal2 = 360 / denominator2;
     angleNew2 = 0;
     setDraw2 = 1;
-    xLocation2 = 200;
+    xLocation2 = 300;
     document.getElementById("combineFractions").style.display = "block";
 }
 
 function combineFractions() {
     xLocation = 200;
-    xLocation2 = 0;
+    xLocation2 = 200;
+    plus = 1;
 }
 
 function setup() {
@@ -55,6 +58,7 @@ function draw() {
   //1st fraction
   if (setDraw == 1) {
     noFill();
+    push();
     translate(xLocation,200);
     stroke(0);
     //fill in the fraction
@@ -87,13 +91,24 @@ function draw() {
       }
     //draw outside red circle
     circle(0, 0, 2 * radius);
+    pop();
+    //write fraction
+    textSize(24);
+    fill(255,0,0);
+    text(numerator, 100, 60);
+    fill(0);
+    strokeWeight(2);
+    line(90,70,120,70);
+    fill(0);
+    text(denominator, 100, 100);
   }
 
 
   //2nd fraction
   if (setDraw2 == 1) {
     noFill();
-    translate(xLocation2,0);
+    push();
+    translate(xLocation2,200);
     stroke(0);
     angleLine2 = redDoneAngle;
     //fill in the fraction
@@ -126,6 +141,18 @@ function draw() {
       }
     //draw outside red circle
     circle(0, 0, 2 * radius);
-
+    pop();
+    textSize(24);
+    fill(0,0,255);
+    text(numerator2, 300, 60);
+    fill(0);
+    strokeWeight(2);
+    line(290,70,320,70);
+    fill(0);
+    text(denominator2, 300, 100);
+  }
+  if (plus == 1) {
+    line(190,70,210,70);
+    line(200,60,200,80);
   }
 }
