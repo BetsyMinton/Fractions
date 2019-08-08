@@ -26,6 +26,7 @@ function drawFractionOne() {
     angleNew = 0;
     setDraw = 1;
     xLocation = 100;
+    document.getElementById("secondFraction").style.display = "block";
 }
 
 function drawFractionTwo() {
@@ -35,6 +36,7 @@ function drawFractionTwo() {
     angleNew2 = 0;
     setDraw2 = 1;
     xLocation2 = 200;
+    document.getElementById("combineFractions").style.display = "block";
 }
 
 function combineFractions() {
